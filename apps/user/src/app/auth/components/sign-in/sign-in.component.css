@@ -1,0 +1,28 @@
+.object {
+  border-radius: 10px;
+}
+
+.box {
+  height: 100vh;
+}
+
+.head {
+  font-weight: bold;
+}
+
+.container {
+  padding: 30px;
+}
+
+::ng-deep {
+  .login_parent .mat-mdc-button:not(:disabled) {
+    color: white !important;
+    padding: 24px !important;
+    border-radius: 30px;
+  }
+
+  .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+    background-color: transparent !important;
+  }
+
+}

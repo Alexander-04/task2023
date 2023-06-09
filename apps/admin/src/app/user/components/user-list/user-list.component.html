@@ -1,0 +1,13 @@
+<div class="outer-space" fxLayout="row-wrap" fxLayout.lt-sm="column">
+    <mat-card *ngFor="let data of dataSource" fxFlexOffset="20px" class="sidewide">
+      <mat-card-content>
+        <div>First Name: {{data.firstName}}</div>
+        <div>Last name:  {{data.lastName}}</div>
+        <div>Email:      {{data.email}}</div>
+        <div>Date Of Birth: {{data.dateOfBirth}}</div>
+        <div>Gender:     {{data.gender}}</div>
+        <div>Address:    {{data.address}}</div>
+        <mat-icon (click)="submit(data)">visibility</mat-icon>
+      </mat-card-content>
+    </mat-card>
+</div>

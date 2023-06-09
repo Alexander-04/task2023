@@ -1,0 +1,61 @@
+<form [formGroup]="employeeReg" class="outside">
+  <div fxLayout="column">
+    <div fxLayoutAlign="center" fxFlex="100%" fxLayout="row">
+      <mat-label fxLayoutAlign="center center" fxFlex="40%">FirstName</mat-label>
+      <mat-form-field fxFlex="60%" appearance="outline">
+        <input matInput formControlName="firstName">
+      </mat-form-field>
+    </div>
+
+    <div fxLayoutAlign="center" fxFlex="100%" fxLayout="row">
+      <mat-label fxLayoutAlign="center center" fxFlex="40%">LastName</mat-label>
+      <mat-form-field fxFlex="60%" appearance="outline">
+        <input matInput formControlName="lastName">
+      </mat-form-field>
+    </div>
+    <div fxLayoutAlign="center" fxFlex="100%" fxLayout="row">
+      <mat-label fxLayoutAlign="center center" fxFlex="40%">Date Of Birth</mat-label>
+      <mat-form-field fxFlex="60%" appearance="outline">
+        <input matInput formControlName="dateOfBirth">
+      </mat-form-field>
+    </div>
+
+    <div fxLayoutAlign="center" fxFlex="100%" fxLayout="row">
+      <mat-label fxLayoutAlign="center center" fxFlex="40%">Email</mat-label>
+      <mat-form-field fxFlex="60%" appearance="outline">
+        <input matInput formControlName="email">
+      </mat-form-field>
+    </div>
+    <div fxLayoutAlign="center" fxFlex="100%" fxLayout="row">
+      <mat-label fxLayoutAlign="center center" fxFlex="40%">Gender</mat-label>
+      <mat-form-field fxFlex="60%" appearance="outline">
+        <input matInput formControlName="gender">
+      </mat-form-field>
+    </div>
+
+    <mat-divider></mat-divider>
+    <!-- Form Array -->
+    <div *ngIf="employeeReg && getContacts().length > 0">
+      <div formArrayName="address">
+        <div *ngFor="let item of getContacts(); let i=index">
+          <div [formGroupName]="i" fxLayout="column" class="card">
+            <div class="row" fxLayout="row" fxLayoutAlign="end center">
+              <mat-icon (click)="createArray()">add_circle</mat-icon>
+              <mat-icon *ngIf="i != 0" (click)="removeArray(i)">remove_circle_outline</mat-icon>
+            </div>
+            <div fxLayoutAlign="center" fxFlex="100%" fxLayout="row">
+              <mat-label fxLayoutAlign="center center" fxFlex="40%">Address</mat-label>
+              <mat-form-field fxFlex="60%" appearance="outline">
+                <input matInput formControlName="address">
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ng-container>
+    <div fxLayoutAlign="center center"><button class="butt" (click)="back()" mat-raised-button
+        color="accent">Back</button></div>
+  </ng-container>
+</form>

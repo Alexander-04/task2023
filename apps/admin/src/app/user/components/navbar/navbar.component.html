@@ -1,0 +1,23 @@
+<div style="height: 100vh;">
+  <mat-toolbar color="primary" class="navbar">
+    <mat-toolbar-row fxLayoutAlign="space-between center center">
+      <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm="true">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>MY-APP</span>
+      <div fxShow="true" fxHide.lt-md="true">
+        <button data-control="table" mat-button routerLink='/navbar/user'>Table</button>
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+  <mat-sidenav-container>
+    <mat-sidenav #sidenav fxHide.gt-md="true">
+      <mat-nav-list fxLayout="column">
+        <button data-control="table" mat-button routerLink='/navbar/user'>Table</button>
+        <button mat-button (click)="sidenav.toggle()">close</button>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content><router-outlet></router-outlet></mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
